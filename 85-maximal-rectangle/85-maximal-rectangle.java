@@ -37,39 +37,39 @@ class Solution {
             }
         }
     }
-    public int maxHis(int[] row, int n){
-        Stack<Integer> stack = new Stack<>();
-        int top;
-        int maxArea = 0;
-        int area = 0;
-        int i=0;
-        while(i<n){
-            System.out.println(stack);
-            if(stack.empty() || row[stack.peek()] <= row[i]){
-                stack.push(i);
-                i++;
-            }else{
-                top = row[stack.peek()];
-                stack.pop();
-                area = top*i;
-                if(!stack.empty()){
-                    area = top*(i-stack.peek()-1);
-                }
-                maxArea = Math.max(maxArea, area);
-            }
-        }
-        while (!stack.empty()) {
-            top = row[stack.peek()];
-            stack.pop();
-            area = top * i;
-            if (!stack.empty()){
-                area = top * (i - stack.peek() - 1);
+//     public int maxHis(int[] row, int n){
+//         Stack<Integer> stack = new Stack<>();
+//         int top;
+//         int maxArea = 0;
+//         int area = 0;
+//         int i=0;
+//         while(i<n){
+//             System.out.println(stack);
+//             if(stack.empty() || row[stack.peek()] <= row[i]){
+//                 stack.push(i);
+//                 i++;
+//             }else{
+//                 top = row[stack.peek()];
+//                 stack.pop();
+//                 area = top*i;
+//                 if(!stack.empty()){
+//                     area = top*(i-stack.peek()-1);
+//                 }
+//                 maxArea = Math.max(maxArea, area);
+//             }
+//         }
+//         while (!stack.empty()) {
+//             top = row[stack.peek()];
+//             stack.pop();
+//             area = top * i;
+//             if (!stack.empty()){
+//                 area = top * (i - stack.peek() - 1);
                 
-            }
-            maxArea = Math.max(area, maxArea);
-        }
-        return maxArea;
-    }
+//             }
+//             maxArea = Math.max(area, maxArea);
+//         }
+//         return maxArea;
+//     }
     public int getMax(int[] prev, int[] next, int[] row){
         int max = 0;
         for(int i=0;i<row.length;i++){
