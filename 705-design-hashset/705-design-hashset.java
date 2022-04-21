@@ -1,19 +1,19 @@
 class MyHashSet {
- HashMap<Integer, Integer> map;
+ HashSet<Integer> set;
     public MyHashSet() {
-        map = new HashMap<>();
+        set = new HashSet<>();
     }
     
     public void add(int key) {
-        map.put(key, 1);
+        set.add(key);
     }
     
     public void remove(int key) {
-        map.remove(key);
+        set.remove(key);
     }
     
     public boolean contains(int key) {
-        return map.get(key) != null;
+        return set.contains(key);
     }
 }
 
