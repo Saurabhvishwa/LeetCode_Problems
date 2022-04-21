@@ -5,11 +5,9 @@ class Solution {
         int start = 0;
         int end = nums.length-1;
         int middle;
-        int index=-1;
         while(start<=end){
             middle = start + (end-start)/2;
             if(target == nums[middle]){
-                index = middle;
                 end = middle-1;
             }else if(target<nums[middle]){
                 end = middle-1;
@@ -17,6 +15,6 @@ class Solution {
                 start = middle+1;
             }
         }
-        return index == -1 ? start:index;
+        return start;
     }
 }
