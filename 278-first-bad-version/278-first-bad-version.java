@@ -10,8 +10,7 @@ public class Solution extends VersionControl {
         while(start<=end){
             // ensure you calculate mid values this way ,otherwise ,it would cause overflow
             middle = start+ (end-start)/2;
-            boolean x = isBadVersion(middle);
-            if(x == true){
+            if(isBadVersion(middle)){
                 index = middle;
                 end = middle-1;
             }
