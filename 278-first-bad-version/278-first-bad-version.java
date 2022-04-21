@@ -3,9 +3,9 @@
 
 public class Solution extends VersionControl {
     public int firstBadVersion(int n) {
-        int start = 1;
-        int end = n;
-        int middle;
+        int start, end, middle;
+        start = 1;
+        end = n;
         int index = 1;
         while(start<=end){
             // ensure you calculate mid values this way ,otherwise ,it would cause overflow
