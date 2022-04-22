@@ -2,6 +2,11 @@
 // sorting of a DAG
 import java.io.*;
 import java.util.*;
+
+// 1. Maintain the order of the nodes according to their departure time i.e. Topological Order
+// Here We have used stack to store the node according to their departure time
+
+
 class TopologicalSort{
   public void topologicalSortUtil(int v, boolean visited[],
 							Stack<Integer> stack, ArrayList<ArrayList<Integer>> adj)
