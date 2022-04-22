@@ -1,19 +1,39 @@
 class MyHashMap {
-HashMap<Integer, Integer> map;
+    public static class Entry{
+        int key;
+        int value;
+        public Entry(int key, int value){
+            this.key = key;
+            this.value = value;
+        }
+        
+    }
+Entry[] table;
+    int capacity;
     public MyHashMap() {
-        map = new HashMap<>();
+        this.capacity = 10000001;
+        this.table = new Entry[this.capacity];
     }
     
     public void put(int key, int value) {
-        map.put(key, value);
+        Entry entry = new Entry(key, value);
+        int hash = getHash(key);
+        table[hash] = entry;
     }
     
     public int get(int key) {
-        return map.get(key) != null ? map.get(key): -1;
+        int hash = getHash(key);
+        Entry entry = table[hash];
+        return entry == null ? -1 : entry.value;
     }
     
     public void remove(int key) {
-        map.remove(key);
+        int hash = getHash(key);
+        table[hash] = null;
+        
+    }
+    public int getHash(int key){
+       return Math.abs(Integer.valueOf(key).hashCode()) % this.capacity;
     }
 }
 
