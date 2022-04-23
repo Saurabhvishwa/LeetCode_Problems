@@ -32,12 +32,10 @@ public class GFG
 class Solution
 {
      public static int modifiedBinarySearch(int[] arr, int start, int end, int key){
-         int index = -1;
         while(start<=end){
             int mid = (start+end)/2;
             if(arr[mid] == key){
-                index = mid;
-                break;
+                return mid;
             }
             else if(arr[start]<=arr[mid]){
                 if(key>=arr[start] && key<arr[mid]){
@@ -54,7 +52,7 @@ class Solution
             }
         
         }
-        return index == -1 ? -1 : index;
+        return -1;
     }
     
     int search(int A[], int l, int h, int key)
