@@ -14,21 +14,22 @@
  * }
  */
 class Solution {
-    TreeNode parent = null;
-    public TreeNode getTree(TreeNode root, TreeNode node){
-        
-        if(root == null){
-            return new TreeNode(node.val);
-        }
-        root.right = getTree(root.right, node);
-        return root;
+    TreeNode head = null;
+    TreeNode prev = null;
+    public void inOrder(TreeNode root){
+        if(root == null) return;
+        inOrder(root.left);
+        prev.right = root;
+        prev.left = null;
+        prev = root;
+        inOrder(root.right);
     }
     public TreeNode increasingBST(TreeNode root) {
-        if(root == null) return null;
-        increasingBST(root.left);
-        parent = getTree(parent, root);
-        increasingBST(root.right);
-        return parent;
-        
+        head = new TreeNode();
+       prev = head;
+        inOrder(root);
+        prev.left = null;
+        prev.right = null;
+        return head.right;
     }
 }
