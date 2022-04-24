@@ -13,7 +13,6 @@ class Solution {
                     }else continue;
                 }
             }else continue;
-        System.out.println(Arrays.toString(dp));
         }
         return dp[s.length()];
     }
