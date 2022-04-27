@@ -36,13 +36,11 @@ class Solution {
             }
             
             Collections.sort(temp);
-            System.out.println(list+" "+temp);
             int index = 0;
            for(int i=0;i<temp.size();i++){
                arr[list.get(i)] = temp.get(i);
            }
         }
-        System.out.println(Arrays.toString(parent)+" "+map+" "+Arrays.toString(arr));
         return String.valueOf(arr);
     }
 }
