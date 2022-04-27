@@ -1,0 +1,6 @@
+Union find algorithm is an algorithm that performs two useful operations on such a data structure
+1. Find : Determine which subset a particular element is in. This can also be used to find out if two elements are in the same subset or not.
+2. Union : Join two subsets into a single subset.
+
+This algorithm is used to find the root for any subset
+For graph, if two root elements are in the same subset then there is a loop.
