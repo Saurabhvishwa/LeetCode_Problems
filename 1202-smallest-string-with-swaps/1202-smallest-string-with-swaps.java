@@ -27,20 +27,22 @@ class Solution {
                 list.add(i);
                 map.put(ind, list);
         }
-        char[] arr = s.toCharArray();
+        // char[] arr = s.toCharArray();
+        StringBuilder sbr = new StringBuilder(s);
         for(int key:map.keySet()){
             List<Integer> list = map.get(key);
             List<Character> temp = new ArrayList<>();
             for(int i:list){
-                temp.add(arr[i]);
+                temp.add(sbr.charAt(i));
             }
             
             Collections.sort(temp);
             int index = 0;
            for(int i=0;i<temp.size();i++){
-               arr[list.get(i)] = temp.get(i);
+               sbr.replace(list.get(i), list.get(i)+1, String.valueOf(temp.get(i)));
+               // arr[list.get(i)] = temp.get(i);
            }
         }
-        return String.valueOf(arr);
+        return sbr.toString();
     }
 }
