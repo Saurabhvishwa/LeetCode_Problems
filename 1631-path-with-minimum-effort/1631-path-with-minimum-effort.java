@@ -20,13 +20,7 @@ class Solution {
                 dp[i][j] = Integer.MAX_VALUE;
             }
         }
-        Queue<Cell> minHeap = new PriorityQueue<>(new Comparator<Cell>(){
-             public int compare(Cell cell1, Cell cell2) {
-        if (cell1.effort < cell2.effort) return -1;
-        if (cell1.effort > cell2.effort) return 1;
-        return 0;
-    }
-        });
+        Queue<Cell> minHeap = new PriorityQueue<>(Comparator.comparingInt(cell -> cell.effort));
         minHeap.add(new Cell(0,0,0));
         while(!minHeap.isEmpty()){
             Cell cell = minHeap.poll();
@@ -34,9 +28,7 @@ class Solution {
             int row = cell.row;
             int col = cell.col;
             if(dist > dp[row][col]) continue;
-            
             if(row == m-1 && col == n-1) break;
-            
             for(int[] k:pos){
                 int newRow = row+k[0];
                 int newCol = col+k[1];
