@@ -23,13 +23,11 @@ class Solution {
         if(a.size() != b.size()) return false;
         
         while (!a.empty()){
-            if (a.peek() == b.peek())
-            {
+            if (a.peek() == b.peek()){
                 a.pop();
                 b.pop();
             }
-            else
-            {
+            else{
                 return false;
             }
         }
