@@ -1,6 +1,6 @@
 class Solution {
-    public String countSay(String n){
-        String result = "";
+    public StringBuilder countSay(String n){
+        StringBuilder result = new StringBuilder("");
         int i = 0;
         char temp = n.charAt(0);
         int count = 1;
@@ -9,21 +9,21 @@ class Solution {
             if(n.charAt(i) == temp){
                 count++;
             }else{
-                result += String.valueOf(count)+String.valueOf(temp);
+                result.append(String.valueOf(count)+String.valueOf(temp));
                 temp = n.charAt(i);
                 count = 1;
             }
             i++;
         }
-         result += String.valueOf(count)+String.valueOf(temp);
+         result.append(String.valueOf(count)+String.valueOf(temp));
         return result;
     }
     public String countAndSay(int n) {
         if(n==1) return "1";
-        String s = "1";
+        StringBuilder s = new StringBuilder("1");
         for(int i=1;i<n;i++){
-            s = countSay(s);
+            s = countSay(s.toString());
         }
-        return s;
+        return s.toString();
     }
 }
