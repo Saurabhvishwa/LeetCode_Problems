@@ -1,5 +1,5 @@
 class Solution {
-    public int getLongestSubSequence(String a, String b){
+    public int longestCommonSubsequence(String a, String b) {
         int[][] dp = new int[a.length()+1][b.length()+1];
         for(int i=0;i<dp.length;i++){
             for(int j=0;j<dp[0].length;j++){
@@ -14,8 +14,5 @@ class Solution {
             }
         }
         return dp[a.length()][b.length()];
-    }
-    public int longestCommonSubsequence(String text1, String text2) {
-        return getLongestSubSequence(text1, text2);
     }
 }
