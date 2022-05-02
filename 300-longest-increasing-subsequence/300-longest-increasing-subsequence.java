@@ -13,7 +13,9 @@ class Solution {
         }
         int max = Integer.MIN_VALUE;
         for(int i:dp){
-            max = Math.max(max, i);
+            if(i>max){
+                max = i;
+            }
         }
         return max;
     }
