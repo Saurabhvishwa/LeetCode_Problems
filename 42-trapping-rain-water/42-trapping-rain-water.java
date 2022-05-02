@@ -4,7 +4,6 @@ class Solution {
         int prevIndex = 0;
         int size = height.length-1;
         int prev = height[0];
-        
         int temp = 0;
         for(int i=1;i<=size;i++){
             if(height[i] < prev){
@@ -16,7 +15,6 @@ class Solution {
                 temp = 0;
             }
         }
-        
         if(prevIndex < size){
             result -= temp;
             prev = height[size];
