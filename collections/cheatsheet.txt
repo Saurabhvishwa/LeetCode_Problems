@@ -15,6 +15,7 @@
 => Arrays.fill(T[] array, T value)
 => Arrays.sort(T[] array)
 => Arrays.toString(T[] array)
+=> Arrays.stream(T[] array) : average(), findAny(), findFirst(), max(), min(), reduce()
 
 ====>List<====
 => All methods of Collections
