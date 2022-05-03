@@ -1,0 +1,109 @@
+====>Collectiond<====
+=> add(T element) : Add elements to the collection
+=> clear() : Clear all the elements from the collection
+=> contains(T object) : Checks if the element is present or not
+=> isEmpty() : Checks if collection is empty or not
+=> remove(T element) : Removes the element from the collection
+=> toArray() : Convert the collection into an Array
+=> size() : Returns the size of the collection
+=> stream() : Convert the collection into stream object
+
+====>Arrays<====
+=> Arrays.asList("1","2")
+=> Arrays.copyOf(T[] array, int newLength)
+=> Arrays.equals(T[] array1, T[] array2)
+=> Arrays.fill(T[] array, T value)
+=> Arrays.sort(T[] array)
+=> Arrays.toString(T[] array)
+
+====>List<====
+=> All methods of Collections
+=> add(T element)
+=> add(int index, T element)
+=> clear()
+=> contains(T object)
+=> get(int index)
+=> indexOf(T element)
+=> isEmpty()
+=> remove(int index)
+=> remove(T element)
+=> set(int index, T element)
+=> subList(int from, int to)
+=> toArray()
+=> size()
+=> stream()
+
+====>Stack<====
+=> All methods of List
+=> empty()
+=> clear()
+=> peek()
+=> pop()
+=> push(T element)
+=> isEmpty()
+
+====>Queue<====
+=> All methods of Collections
+=> add(T element)
+=> offer(T element)
+=> peek()
+=> poll()
+=> clear()
+
+====>PriorityQueue<====
+=> PriorityQueue object = new PriorityQueue(new Comparator<T>(){
+      @override
+      public int compare(T obj1, T obj2){
+        return obj1.compareTo(obj2);
+      }
+    })
+=> clear()
+=> add(T element)
+=> offer(T element)
+=> peek()
+=> poll()
+=> toArray()
+
+====>Deque<====
+=> All methods of Queue
+=> add(T element)
+=> addFirst(T element)
+=> addLast(T element)
+=> contains(T element)
+=> getFirst()
+=> getLast()
+=> offer(T element)
+=> offerFirst(T element)
+=> offerLast(T element)
+=> peekFirst()
+=> peekLast()
+=> poll()
+=> pollFirst()
+=> pollLast()
+=> remove()
+=> removeFirst()
+=> removeLast()
+
+====>Set<====
+=> All methods of Collections
+=> add(T element)
+=> isEmpty()
+=> clear()
+=> contains(T element)
+=> remove(T element)
+=> size()
+=> toArray()
+
+====>Map<====
+=> clear()
+=> containsKey(T key)
+=> entrySet()
+=> get(T key)
+=> getOrDefault(T key, T defaultValue)
+=> isEmpty()
+=> keySet()
+=> put(T key, T value)
+=> remove(T key)
+=> replace(T key, T value)
+=> size()
+=> values()
