@@ -3,7 +3,6 @@ class Solution {
         int m = word1.length();
         int n = word2.length();
         int[][] dp = new int[2][n+1];
-        dp[0][0] = 0;
         for(int i=0;i<=m;i++){
             for(int j=0;j<=n;j++){
                 if(i == 0 && j == 0){
