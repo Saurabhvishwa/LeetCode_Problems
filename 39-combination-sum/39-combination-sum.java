@@ -17,8 +17,6 @@ class Solution {
     }
     
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        List<Integer> l = Arrays.stream(candidates).boxed().collect(Collectors.toList());
-        Set<Integer> set = new TreeSet<Integer>(l);
         List<List<Integer>> ans = new ArrayList<>();
         List<Integer> temp = new ArrayList<>();
         getComb(ans, temp, candidates, 0, target);
