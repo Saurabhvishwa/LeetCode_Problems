@@ -1,49 +1,34 @@
 class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int n = nums1.length;
-        int m = nums2.length;
-        if(n == 0 && m == 0){
-            return 0.0;
-        }else if(n == 0){
-            if(m%2==0){
-                return (nums2[m/2]+nums2[(m/2)-1])/2.0;
-            }else{
-                return nums2[m/2];
-            }
-        }else if(m == 0){
-            if(n%2==0){
-                return (nums1[n/2]+nums1[(n/2)-1])/2.0;
-            }else{
-                return nums1[n/2];
-            }
+        if(nums1.length > nums2.length){
+            return findMedianSortedArrays(nums2, nums1);
         }
-        int[] res = new int[n+m];
-        int i=0, j=0;
-        int k = 0;
-        while(i<n && j<m){
-            if(nums1[i]<=nums2[j]){
-                res[k] = nums1[i];
-                i++;
-                k++;
+        int m = nums1.length;
+        int n = nums2.length;
+        int start = 0;
+        int end = nums1.length;
+        int mid = (m + n + 1)/2;
+        while(start<=end){
+            int md = (start+end)/2;
+            int leftASize = md;
+            int leftBSize = mid-md;
+            int leftA = (leftASize > 0) ? nums1[leftASize-1] : Integer.MIN_VALUE;
+            int leftB = (leftBSize > 0) ? nums2[leftBSize -1]: Integer.MIN_VALUE;
+            int rightA = (leftASize<m) ? nums1[leftASize] : Integer.MAX_VALUE;
+            int rightB = (leftBSize<n) ? nums2[leftBSize] : Integer.MAX_VALUE;
+            
+            if(leftA <= rightB && leftB <= rightA){
+                if((m+n)%2==1){
+                    return Math.max(leftA, leftB);
+                }else{
+                    return (Math.max(leftA, leftB)+Math.min(rightA, rightB))/2.0;
+                }
+            }else if(leftA>rightB){
+                end = md-1;
             }else{
-                res[k] = nums2[j];
-                j++;
-                k++;
+                start = md+1;
             }
         }
-        while(i<n){
-            res[k] = nums1[i];
-            i++;
-            k++;
-        }
-        while(j<m){
-            res[k] = nums2[j];
-            j++;
-            k++;
-        }
-        if((m+n)%2==0){
-            return (res[(m+n)/2]+res[((m+n)/2)-1])/2.0;
-        }
-        return res[(m+n)/2];
+        return 0.0;
     }
 }
