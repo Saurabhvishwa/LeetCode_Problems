@@ -10,11 +10,10 @@ class MyStack {
     }
     
     public int pop() {
-        int element;
         int size = queue.size();
         size--;
         while(size>0){
-            element = queue.poll();
+            int element = queue.poll();
             queue.add(element);
             size--;
         }
