@@ -19,6 +19,7 @@ class Solution {
     }
     public int maxD(TreeNode root, Diameter d){
         if(root == null) return 0;
+        if(root.left == null && root.right == null) return 1;
         int left = maxD(root.left, d);
         int right = maxD(root.right, d);
         d.value = Math.max(d.value, left+right); 
