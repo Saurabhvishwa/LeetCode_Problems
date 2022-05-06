@@ -15,7 +15,7 @@
  */
 class Solution {
     static class Diameter{
-        int value = Integer.MIN_VALUE;
+        int value = 0;
     }
     public int maxD(TreeNode root, Diameter d){
         if(root == null) return 0;
