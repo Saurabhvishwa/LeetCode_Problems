@@ -95,6 +95,11 @@
 => size()
 => toArray()
 
+====>TreeSet<====
+=> All methods of Set
+=> lower(T element) : Returns the greatest values strictly less than element
+=> higher(T element) : Returns the least element strictly greater than element
+
 ====>Map<====
 => clear()
 => containsKey(T key)
@@ -108,3 +113,10 @@
 => replace(T key, T value)
 => size()
 => values()
+
+====>Treemap<====
+=> All methods of Map
+=> lowerKey(T key)
+=> higherKey(T key)
+=> lowerEntry(T key)
+=> higherEntry(T key)
