@@ -7,15 +7,13 @@ class Solution {
             st.push(Math.min(st.peek(), nums[i]));
         }
         TreeSet<Integer> tree = new TreeSet<>();
-        for(int i=n-1;i>=0;i--){
-            int num = nums[i];
-            Integer right = tree.lower(num);
-            if(st.isEmpty()) return false;
+        for(int i=n-1;i>=1;i--){
             int left = st.pop();
-            if(i>0 && right != null){
+            Integer right = tree.lower(nums[i]);
+            if(right != null){
                 if(left < right) return true;
             }
-            tree.add(num);
+            tree.add(nums[i]);
         }
         return false;
     }
