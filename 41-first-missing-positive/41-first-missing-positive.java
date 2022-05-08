@@ -1,20 +1,24 @@
 class Solution {
     public int firstMissingPositive(int[] nums) {
-        int n = nums.length;
         int i = 0;
+        int n = nums.length;
         for(i=0;i<n;i++){
             if(nums[i] == 1){
                 break;
             }
         }
         if(i == n) return 1;
-        Map<Integer, Integer> map = new HashMap<>();
+        
         for(i=0;i<n;i++){
-            if(nums[i]<=0 || nums[i] > n) map.put(1,1);
-            else map.put(nums[i], 1);
+            if(nums[i]<=0 || nums[i]>n){
+                nums[i] = 1;
+            }
         }
-        for(i=1;i<=n;i++){
-            if(!map.containsKey(i)) return i;
+        for(i=0;i<n;i++){
+            nums[(nums[i]-1)%n] += n;
+        }
+        for(i=0;i<n;i++){
+            if(nums[i]<=n) return i+1;
         }
         return n+1;
     }
