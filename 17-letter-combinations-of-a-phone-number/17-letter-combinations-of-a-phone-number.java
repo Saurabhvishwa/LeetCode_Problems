@@ -1,15 +1,4 @@
 class Solution {
-    public void findCombinations(String[] arr, List<String> list, String temp, String orig,  int n, int index){
-        if(temp.length() == n){
-            list.add(temp);
-            return;
-        }
-        int val = Integer.parseInt(String.valueOf(orig.charAt(index)));
-        String current = arr[val-2];
-        for(int i=0;i<current.length();i++){
-            findCombinations(arr, list, temp+current.charAt(i), orig, n, index+1);
-        }
-    }
     public List<String> findComb(String[] arr, int n, String orig){
         List<String> list = new ArrayList<>();
         Queue<String> q = new LinkedList<>();
