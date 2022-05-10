@@ -5,12 +5,13 @@ class Solution {
         }
         
         for(int i=index;i<arr.length;i++){
-            if(arr[i]>target) break;
+            if(arr[i]>target) return;
             if(i>index && arr[i] == arr[i-1]) continue;
             temp.add(arr[i]);
             combFinder(arr, target-arr[i], ans, temp, i+1);
             temp.remove(temp.size()-1);
         }
+        return;
         
     }
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
