@@ -1,8 +1,6 @@
 class Solution {
     public int jump(int[] nums) {
-        int curr = -1;
-        int last = 0;
-        int jumps = 0;
+        int curr = -1, last = 0, jumps = 0;
         for(int i=0;last<nums.length-1;i++){
             if(i>curr){
                 jumps++;
