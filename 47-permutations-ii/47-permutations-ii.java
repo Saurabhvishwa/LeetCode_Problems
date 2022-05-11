@@ -1,24 +1,11 @@
 class Solution {
     public boolean isPermutable(int[] nums, int start, int curr){
-            // for(int i=start;i<curr;i++){
-            //     if(nums[i] == nums[curr]){
-            //         return false;
-            //     }
-            // }
-        
         int end = curr-1;
         while(start<=end){
             int mid = (start+end)/2;
-            if(nums[mid] == nums[curr]){
-            
-                System.out.println(Arrays.toString(nums)+" "+start+" "+curr);
-                return false;
-            }
-            else if(nums[mid] > nums[curr]){
-                end = mid-1;
-            }else{
-                start = mid+1;
-            }
+            if(nums[mid] == nums[curr]) return false;
+            else if(nums[mid] > nums[curr]) end = mid-1;
+            else start = mid+1;
         }
         return true;
     }
