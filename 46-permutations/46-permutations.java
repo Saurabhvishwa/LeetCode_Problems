@@ -5,12 +5,15 @@ class Solution {
             return;
         }
         for(int i=0;i<nums.length;i++){
-            if(!temp.contains(nums[i])){
+            if(nums[i] != Integer.MAX_VALUE){
                 temp.add(nums[i]);
+                int value = nums[i];
+                nums[i] = Integer.MAX_VALUE;
                 permutation(nums, i+1, ans, temp);
                 temp.remove(temp.size()-1);
+                nums[i] = value;
                 
-            }
+            }else continue;
         }
         return;
     }
