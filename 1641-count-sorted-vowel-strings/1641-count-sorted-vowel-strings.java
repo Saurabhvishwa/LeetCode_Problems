@@ -1,19 +1,17 @@
 class Solution {
     public int count(int n){
-        List<Integer> list = new ArrayList<>();
-        for(int i=0;i<5;i++){
-            list.add(1);
-        }
-        for(int i=2;i<=n;i++){
-            for(int j=3;j>=0;j--){
-                list.set(j, list.get(j)+list.get(j+1));
+        int[][] dp = new int[n+1][6];
+        dp[1][1] = 1;
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<6;j++){
+                if(i == 1){
+                    dp[i][j] = dp[i][j-1]+1;
+                }else{
+                    dp[i][j] = dp[i][j-1]+dp[i-1][j];
+                }
             }
         }
-        int count = 0;
-        for(int i:list){
-            count+=i;
-        }
-        return count;
+        return dp[n][5];
     }
     public int countVowelStrings(int n) {
         // return (n+1)*(n+2)*(n+3)*(n+4)/24;
