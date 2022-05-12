@@ -22,14 +22,12 @@ class Solution {
                 perm(nums, ans, temp);
                 nums[i] = value;
                 temp.remove(temp.size()-1);
-            }
-            
+            }    
         }
         return;
     }
     public List<List<Integer>> permuteUnique(int[] nums) {
         Arrays.sort(nums);
-        
         List<List<Integer>> ans = new ArrayList<>();
         perm(nums , ans, new ArrayList<Integer>());
         return ans;
