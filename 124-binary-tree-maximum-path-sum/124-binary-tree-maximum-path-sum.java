@@ -23,8 +23,7 @@ class Solution {
         return current;
     }
     public int maxPathSum(TreeNode root) {
-        int[] max = new int[1];
-        max[0] = Integer.MIN_VALUE;
+        int[] max = {Integer.MIN_VALUE};
         max(root, max);
         return max[0];
     }
