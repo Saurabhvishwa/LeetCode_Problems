@@ -51,6 +51,7 @@ class Solution {
         int[] count = {0};
         char[][] sol = new char[n][n];
         perm(0, sol, n, count);
+        sol = null;
         return count[0];
     }
 }
