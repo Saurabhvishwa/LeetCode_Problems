@@ -14,7 +14,6 @@ class Solution {
                 }
             }
         }
-        System.out.println(Arrays.toString(dp));
         return dp[n-1] != Integer.MAX_VALUE;
     }
     public boolean canJump(int[] nums) {
