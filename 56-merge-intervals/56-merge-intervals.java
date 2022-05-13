@@ -24,8 +24,7 @@ class Solution {
         for(int[] a:intervals){
             if(a[0]!=-1){
                 ans[index][0] = a[0];
-                ans[index][1] = a[1];
-                index++;
+                ans[index++][1] = a[1];
             }
         }
         return ans;
