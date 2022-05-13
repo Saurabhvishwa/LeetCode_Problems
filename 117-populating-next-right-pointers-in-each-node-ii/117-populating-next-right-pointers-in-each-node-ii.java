@@ -32,17 +32,15 @@ class Solution {
             if(current!=null){
                     if(current.left != null) queue.add(current.left);
                     if(current.right != null) queue.add(current.right);
-                
                     while(!queue.isEmpty() && queue.peek() != null){
                     Node next = queue.poll();
-                    System.out.println(current.val+" "+next.val);
                     current.next = next;
                     current = next;
                     if(current.left != null) queue.add(current.left);
                     if(current.right != null) queue.add(current.right);
                     }
                     queue.add(null);
-                    if(!queue.isEmpty()) queue.poll();
+                    queue.poll();
             }
             
             
