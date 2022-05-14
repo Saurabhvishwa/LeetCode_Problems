@@ -6,7 +6,6 @@ class Solution {
             digits[i] = (carry + digits[i])%10;
             carry = temp;
         }
-        System.out.println(carry);
         if(carry > 0){
             int[] ans = new int[digits.length+1];
             ans[0] = carry;
