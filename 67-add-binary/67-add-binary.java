@@ -5,12 +5,10 @@ class Solution {
         int carry = 0;
         while(i>=0 || j>=0){
             int first = 0, second = 0;
-            if(i<0){
-            }else{
+            if(i>=0){
                 first = a.charAt(i) - '0';
             }
-            if(j<0){
-            }else{
+            if(j>=0){
                 second = b.charAt(j) - '0';
             }
             if(first == 1 && second == 1 && carry == 1){
