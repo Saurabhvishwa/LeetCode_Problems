@@ -27,32 +27,14 @@ class Solution {
                     }
                     if(!isValid(grid, r, c, grid.length)) continue;
                     grid[r][c] = -1;
-                    if(isValid(grid, r, c+1, grid.length)){
-                        q.add(new Node(r, c+1, d+1));
-                    }
-                    if(isValid(grid, r+1, c+1, grid.length)){
-                        q.add(new Node(r+1, c+1, d+1));
-                    }
-                    if(isValid(grid, r+1, c, grid.length)){
+                    q.add(new Node(r, c+1, d+1));
+                    q.add(new Node(r+1, c+1, d+1));
                     q.add(new Node(r+1, c, d+1));
-                        
-                    }
-                    if(isValid(grid, r+1, c-1, grid.length)){
                     q.add(new Node(r+1, c-1, d+1));
-                        
-                    }
-                    if(isValid(grid, r, c-1, grid.length)){
-                        q.add(new Node(r, c-1, d+1));
-                    }
-                    if(isValid(grid, r-1, c-1, grid.length)){
-                        q.add(new Node(r-1, c-1, d+1));
-                    }
-                    if(isValid(grid, r-1, c, grid.length)){
-                        q.add(new Node(r-1, c, d+1));
-                    }
-                    if(isValid(grid, r-1, c+1, grid.length)){
-                        q.add(new Node(r-1, c+1, d+1));
-                    }
+                    q.add(new Node(r, c-1, d+1));
+                    q.add(new Node(r-1, c-1, d+1));
+                    q.add(new Node(r-1, c, d+1));
+                    q.add(new Node(r-1, c+1, d+1));
                     
                 }
         return min == Integer.MAX_VALUE ? -1 : min;
