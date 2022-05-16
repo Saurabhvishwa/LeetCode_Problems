@@ -13,14 +13,16 @@ class Solution {
         if(row < 0 || row >= n || col < 0 || col >= n || visited[row][col] == true || grid[row][col] == 1) return false;
         return true;
     }
-    public int dfs(int[][] grid, boolean[][] visited, Queue<Node> q , int[] ans){
+    public int dfs(int[][] grid, boolean[][] visited, Queue<Node> q){
+        if(grid[0][0] == 1 || grid[grid.length-1][grid.length-1] == 1) return -1;
+        int min = Integer.MAX_VALUE;
                 while(!q.isEmpty()){
                     Node curr = q.poll();
                     int r = curr.row;
                     int c = curr.col;
                     int d = curr.d;
                     if(r == grid.length-1 && c == grid.length-1 && grid[r][c] != 1){
-                        ans[0] = Math.min(ans[0], d);
+                        min = Math.min(min, d);
                         continue;
                     }
                     if(!isValid(grid, r, c, visited, grid.length)) continue;
@@ -35,13 +37,12 @@ class Solution {
                     q.add(new Node(r-1, c+1, d+1));
                     
                 }
-        return ans[0] == Integer.MAX_VALUE ? -1 : ans[0];
+        return min == Integer.MAX_VALUE ? -1 : min;
     }
     public int shortestPathBinaryMatrix(int[][] grid) {
-        int[] ans = {Integer.MAX_VALUE};
         Queue<Node> q = new LinkedList<>();
         q.add(new Node(0, 0, 1));
         boolean[][] visited = new boolean[grid.length][grid.length];
-        return dfs(grid, visited, q, ans);
+        return dfs(grid, visited, q);
     }
 }
