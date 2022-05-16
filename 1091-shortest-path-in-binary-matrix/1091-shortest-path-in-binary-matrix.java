@@ -9,11 +9,11 @@ class Solution {
             this.d = d;
         }
     }
-    public boolean isValid(int[][] grid, int row, int col, boolean[][] visited, int n){
-        if(row < 0 || row >= n || col < 0 || col >= n || visited[row][col] == true || grid[row][col] == 1) return false;
+    public boolean isValid(int[][] grid, int row, int col, int n){
+        if(row < 0 || row >= n || col < 0 || col >= n || grid[row][col] == 1 || grid[row][col] == -1) return false;
         return true;
     }
-    public int dfs(int[][] grid, boolean[][] visited, Queue<Node> q){
+    public int dfs(int[][] grid , Queue<Node> q){
         if(grid[0][0] == 1 || grid[grid.length-1][grid.length-1] == 1) return -1;
         int min = Integer.MAX_VALUE;
                 while(!q.isEmpty()){
@@ -25,8 +25,8 @@ class Solution {
                         min = Math.min(min, d);
                         continue;
                     }
-                    if(!isValid(grid, r, c, visited, grid.length)) continue;
-                    visited[r][c] = true;
+                    if(!isValid(grid, r, c, grid.length)) continue;
+                    grid[r][c] = -1;
                     q.add(new Node(r, c+1, d+1));
                     q.add(new Node(r+1, c+1, d+1));
                     q.add(new Node(r+1, c, d+1));
@@ -42,7 +42,6 @@ class Solution {
     public int shortestPathBinaryMatrix(int[][] grid) {
         Queue<Node> q = new LinkedList<>();
         q.add(new Node(0, 0, 1));
-        boolean[][] visited = new boolean[grid.length][grid.length];
-        return dfs(grid, visited, q);
+        return dfs(grid , q);
     }
 }
