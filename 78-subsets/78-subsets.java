@@ -8,7 +8,6 @@ class Solution {
         subset(nums, index+1, n, temp, ans);
         }
     public List<List<Integer>> subsets(int[] nums) {
-        Arrays.sort(nums);
         List<List<Integer>> ans = new LinkedList<>();
         ans.add(new LinkedList<>());
         int n = nums.length;
