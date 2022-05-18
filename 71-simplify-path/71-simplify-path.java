@@ -17,7 +17,7 @@ class Solution {
         }
         StringBuilder sbr = new StringBuilder("");
         while(!st.isEmpty()){
-            sbr.append(new StringBuilder(st.pop()).reverse()).append("/");
+            sbr.append(new StringBuilder(st.pop()).reverse().toString()).append("/");
         }
         return sbr.length() == 0 ? "/" : sbr.reverse().toString();
     }
