@@ -4,7 +4,7 @@ class Solution {
             ans.add(new ArrayList<>(temp));
             return;
         }
-        for(int i=index;i<=n;i++){
+        for(int i=index;i<=n-k+1;i++){
             temp.add(i);
             comb(i+1, n, k-1, temp, ans);
             temp.remove(temp.size()-1);
