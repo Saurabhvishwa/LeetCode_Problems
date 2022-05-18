@@ -11,12 +11,13 @@ class Solution {
                     list.remove(list.size()-1);
                 }
             }else{
-                list.add(s);
+                list.add("/"+s);
             }
         }
+        System.out.println(list);
         StringBuilder sb = new StringBuilder();
         for(String s: list){
-            sb.append("/").append(s);
+            sb.append(s);
         }
         return sb.toString().length() == 0 ? "/" : sb.toString();
     }
