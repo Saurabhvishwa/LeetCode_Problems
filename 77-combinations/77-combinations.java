@@ -12,7 +12,7 @@ class Solution {
     }
     public List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> ans = new ArrayList<>();
-        comb(1, n, k, new ArrayList<Integer>(), ans);
+        comb(1, n, k, new LinkedList<Integer>(), ans);
         return ans;
     }
 }
