@@ -1,6 +1,6 @@
 class Solution {
     public String simplifyPath(String path) {
-        List<String> list = new ArrayList<>();
+        List<String> list = new LinkedList<>();
         int n = path.length();
         String[] arr = path.split("/");
         for(String s:arr){
