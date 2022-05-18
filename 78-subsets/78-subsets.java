@@ -10,8 +10,7 @@ class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> ans = new LinkedList<>();
         ans.add(new LinkedList<>());
-        int n = nums.length;
-        subset(nums, 0, n, new LinkedList<>(), ans);
+        subset(nums, 0, nums.length, new LinkedList<>(), ans);
         return ans;
     }
 }
