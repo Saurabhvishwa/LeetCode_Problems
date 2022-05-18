@@ -15,10 +15,10 @@ class Solution {
                 st.push(s);
             }
         }
-        String ans = "";
+        StringBuilder sbr = new StringBuilder("");
         while(!st.isEmpty()){
-            ans = "/"+st.pop()+ans;
+            sbr.append(new StringBuilder(st.pop()).reverse()).append("/");
         }
-        return ans.length() == 0 ? "/" : ans;
+        return sbr.length() == 0 ? "/" : sbr.reverse().toString();
     }
 }
