@@ -1,5 +1,5 @@
 class Solution {
-    public void comb(int index, int n, int k, List<Integer> temp, List<List<Integer>> ans){
+    public void comb(int index, int n, int k, LinkedList<Integer> temp, List<List<Integer>> ans){
         if(k == 0){
             ans.add(new ArrayList<>(temp));
             return;
@@ -7,7 +7,7 @@ class Solution {
         for(int i=index;i<=n-k+1;i++){
             temp.add(i);
             comb(i+1, n, k-1, temp, ans);
-            temp.remove(temp.size()-1);
+            temp.removeLast();
         }
     }
     public List<List<Integer>> combine(int n, int k) {
