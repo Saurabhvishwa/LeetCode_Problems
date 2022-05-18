@@ -14,7 +14,6 @@ class Solution {
                 list.add(s);
             }
         }
-        System.out.println(list);
         StringBuilder sb = new StringBuilder();
         for(String s: list){
             sb.append("/").append(s);
