@@ -15,7 +15,6 @@ class Solution {
         if(!valid(row, col, matrix.length, matrix[0].length)) return 0;
         if(dp[row][col] != 0) return dp[row][col];
         int[] temp = new int[5];
-        Arrays.fill(temp, Integer.MIN_VALUE);
         if(col<n-1 && matrix[row][col+1]>matrix[row][col]){
             temp[0] = dp[row][col] + 1 + longestPath(matrix, row, col+1, dp, m, n);
         }
