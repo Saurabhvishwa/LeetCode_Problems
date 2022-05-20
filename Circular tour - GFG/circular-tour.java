@@ -49,18 +49,16 @@ class Solution
     int tour(int petrol[], int distance[])
     {
 	// Your code here	
-	int currentPetrol = 0;
-	int start = 0;
-	int deficit = 0;
-	for(int i=0;i<petrol.length;i++){
-	    currentPetrol += petrol[i] - distance[i];
-	    if(currentPetrol < 0){
-	        deficit += currentPetrol;
-	        currentPetrol = 0;
-	        start = i+1;
+	int start = 0, end = 1, p = petrol[0] - distance[0], n = petrol.length;
+	while(start!=end || p<0){
+	    while(p<0 && start!=end){
+	        p -= petrol[start] - distance[start];
+	        start = (start+1)%n;
+	        if(start == 0) return -1;
 	    }
-	   // System.out.println(deficit+" "+currentPetrol);
+	    p += petrol[end] - distance[end];
+	    end = (end+1)%n;
 	}
-	return (currentPetrol+deficit)>=0 ? start : -1;
+	return start;
     }
 }
