@@ -8,42 +8,40 @@ class Solution {
         int m = grid.length;
         int n = grid[0].length;
         int total = 0;
-        int count = 0;
         int time = 0;
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
                 if(grid[i][j] == 1 || grid[i][j] == 2) total++;
                 if(grid[i][j] == 2){
-                    count++;
+                    total--;
                     q.add(new int[]{i, j, 0});
                 }
             }
         }
-        
         while(!q.isEmpty()){
             int[] node = q.poll();
             time = node[2];
             if(isValid(node[0], node[1]+1, grid)){
                 q.add(new int[]{node[0], node[1]+1, node[2]+1});
                 grid[node[0]][node[1]+1] = 2;
-                count++;
+                total--;
             }
             if(isValid(node[0]+1, node[1], grid)){
                 q.add(new int[]{node[0]+1, node[1], node[2]+1});
                 grid[node[0]+1][node[1]] = 2;
-                count++;
+                total--;
             }
             if(isValid(node[0], node[1]-1, grid)){
                 q.add(new int[]{node[0], node[1]-1, node[2]+1});
                 grid[node[0]][node[1]-1] = 2;
-                count++;
+                total--;
             }
             if(isValid(node[0]-1, node[1], grid)){
                 q.add(new int[]{node[0]-1, node[1], node[2]+1});
                 grid[node[0]-1][node[1]] = 2;
-                count++;
+                total--;
             }
         }
-        return total == count ? time : -1;
+        return total == 0 ? time : -1;
     }
 }
