@@ -19,7 +19,6 @@ class Solution {
         int number = num*10 + root.val;
         if(root.left == null && root.right == null){
             sum[0] += number;
-            System.out.println(number);
             return;
         }
         sum(root.left, number, sum);
