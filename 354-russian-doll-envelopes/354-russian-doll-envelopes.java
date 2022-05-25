@@ -1,6 +1,5 @@
 class Solution {
     public int findDoll(int[][] envelopes, int n){
-        int max = 1;
         int[] dp = new int[n];
         int ans = 0;
         for (int[] env : envelopes) {
