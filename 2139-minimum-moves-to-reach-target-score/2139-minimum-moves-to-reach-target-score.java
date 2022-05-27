@@ -4,12 +4,12 @@ class Solution {
         int count = 0;
         while(target>1 && maxDoubles > 0){
             if((target&1) == 1){
-                target--;
+                --target;
             }else{
                 target/=2;
-                maxDoubles--;
+                --maxDoubles;
             }
-            count++;
+            ++count;
         }
         return count+target-1;
     }
