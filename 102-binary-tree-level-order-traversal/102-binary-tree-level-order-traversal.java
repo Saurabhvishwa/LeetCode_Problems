@@ -14,14 +14,6 @@
  * }
  */
 class Solution {
-    static class Node{
-        TreeNode node;
-        int level;
-        Node (TreeNode node, int level){
-            this.node = node;
-            this.level = level;
-        }
-    }
     public List<List<Integer>> levelOrder(TreeNode root) {
         if(root == null) return new ArrayList<>();
         Queue<TreeNode> q = new LinkedList<>();
@@ -33,7 +25,7 @@ class Solution {
             TreeNode node = q.poll();
             if(node == null){
                 list.add(new LinkedList<>(temp));
-                temp.clear();
+                temp = new LinkedList<>();
                 if(q.isEmpty()) break;
                 q.add(null);
                 continue;
