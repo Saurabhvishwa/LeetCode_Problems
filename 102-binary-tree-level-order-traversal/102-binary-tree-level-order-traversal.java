@@ -24,19 +24,23 @@ class Solution {
     }
     public List<List<Integer>> levelOrder(TreeNode root) {
         if(root == null) return new ArrayList<>();
-        Queue<Node> q = new LinkedList<>();
-        q.add(new Node(root, 0));
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        q.add(null);
         List<List<Integer>> list = new ArrayList<>();
-        list.add(new ArrayList<>());
+        List<Integer> temp = new LinkedList<>();
         while(!q.isEmpty()){
-            Node node = q.poll();
-            TreeNode tNode = node.node;
-            if(list.size()<= node.level || list.get(node.level) == null){
-                list.add(new ArrayList<>());
-                list.get(node.level).add(tNode.val);
-            }else list.get(node.level).add(tNode.val);
-            if(tNode.left != null) q.add(new Node(tNode.left, node.level+1));
-            if(tNode.right != null) q.add(new Node(tNode.right, node.level+1));
+            TreeNode node = q.poll();
+            if(node == null){
+                list.add(new LinkedList<>(temp));
+                temp.clear();
+                if(q.isEmpty()) break;
+                q.add(null);
+                continue;
+            }
+            temp.add(node.val);
+            if(node.left != null) q.add(node.left);
+            if(node.right != null) q. add(node.right);
         }
         return list;
     }
