@@ -19,7 +19,7 @@ class Solution {
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
         q.add(null);
-        List<List<Integer>> list = new ArrayList<>();
+        List<List<Integer>> list = new LinkedList<>();
         List<Integer> temp = new LinkedList<>();
         while(!q.isEmpty()){
             TreeNode node = q.poll();
