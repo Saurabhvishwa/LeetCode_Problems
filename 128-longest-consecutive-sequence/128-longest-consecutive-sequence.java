@@ -9,10 +9,9 @@ class Solution {
         for(int i:nums){
             if(!set.contains(i-1)){
                 int num = i;
-                int count = 0;
-                while(set.contains(num)){
+                int count = 1;
+                while(set.contains(++num)){
                     ++count;
-                    ++num;
                 }
                 max = Math.max(max, count);
             }
