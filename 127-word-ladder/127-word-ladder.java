@@ -12,13 +12,16 @@ class Solution {
         while(!q.isEmpty()){
             int size = q.size();
             for(int i=0;i<size;i++){
-                String word = q.poll();
-                if(word.equals(endWord)) return level;
-                for(int j=0;j<word.length();j++){
+                if(q.peek().equals(endWord)) return level;
+                char[] word = q.poll().toCharArray();
+                for(int j=0;j<word.length;j++){
+                    char orig = word[j];
                     for(char c='a';c<='z';c++){
-                        String temp = word.substring(0,j)+c+word.substring(j+1);
+                        word[j] = c;
+                        String temp = String.valueOf(word);
                         if(words.remove(temp)) q.add(temp);
                     }
+                    word[j] = orig;
                 }
             }
             ++level;
