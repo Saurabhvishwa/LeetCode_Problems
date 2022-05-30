@@ -11,6 +11,7 @@ class Solution {
                 int num = i;
                 int count = 1;
                 while(set.contains(++num)){
+                    set.remove(num);
                     ++count;
                 }
                 max = Math.max(max, count);
