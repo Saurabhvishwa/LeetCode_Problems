@@ -7,7 +7,7 @@ class Solution {
         }
         return true;
     }
-    public void findPalindrome(String s, List<List<String>> ans, LinkedList<String> temp, int index){
+    public void findPalindrome(String s, List<List<String>> ans, List<String> temp, int index){
         if(index == s.length()){
             ans.add(new ArrayList<>(temp));
             return;
@@ -16,13 +16,13 @@ class Solution {
             if(isPalindrome(s, index, i)){
                 temp.add(s.substring(index, i+1));
                 findPalindrome(s, ans, temp, i+1);
-                temp.removeLast();
+                temp.remove(temp.size()-1);
             }
         }
     }
     public List<List<String>> partition(String s) {
         List<List<String>> ans = new LinkedList<>();
-        LinkedList<String> temp = new LinkedList<>();
+        List<String> temp = new ArrayList<>();
         findPalindrome(s, ans, temp, 0);
         return ans;
     }
