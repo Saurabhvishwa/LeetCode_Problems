@@ -6,14 +6,14 @@ class Solution {
         for(String s:wordList){
             words.add(s);
         }
-        int level = 0, wordLength = start.length();
+        int level = 1, wordLength = start.length();
         Queue<String> q = new LinkedList<>();
         q.add(start);
         while(!q.isEmpty()){
             int size = q.size();
             for(int i=0;i<size;i++){
                 String word = q.poll();
-                if(word.equals(endWord)) return level+1;
+                if(word.equals(endWord)) return level;
                 for(int j=0;j<word.length();j++){
                     for(char c='a';c<='z';c++){
                         String temp = word.substring(0,j)+c+word.substring(j+1);
