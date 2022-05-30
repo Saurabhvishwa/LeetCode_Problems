@@ -7,8 +7,7 @@ class Solution {
             set.add(i);
         }
         for(int i:nums){
-            if(set.contains(i-1)) continue;
-            else{
+            if(!set.contains(i-1)){
                 int num = i;
                 int count = 0;
                 while(set.contains(num)){
