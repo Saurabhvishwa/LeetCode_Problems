@@ -9,7 +9,7 @@ class Solution {
     }
     public void findPalindrome(String s, List<List<String>> ans, LinkedList<String> temp, int index){
         if(index == s.length()){
-            ans.add(new LinkedList<>(temp));
+            ans.add(new ArrayList<>(temp));
             return;
         }
         for(int i=index;i<s.length();i++){
