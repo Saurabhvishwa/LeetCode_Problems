@@ -10,13 +10,17 @@ class Solution {
                 if(j == 0 || j == i-1){
                     temp.add(1);
                 }else{
-                    int value = ans.get(i-2).get(j-1)+ans.get(i-2).get(j);
+                    int value = ans.get((i-2)%2).get(j-1)+ans.get((i-2)%2).get(j);
                     temp.add(value);
                 }
             }
-            ans.add(temp);
+            if(ans.size()>1){
+                ans.set((i-1)%2, temp);
+            }else{
+                ans.add(temp);
+            }
         }
-        return ans.get(n-1);
+        return ans.get((n-1)%2);
     }
     public List<Integer> getRow(int rowIndex) {
         return getPascal(rowIndex+1);
