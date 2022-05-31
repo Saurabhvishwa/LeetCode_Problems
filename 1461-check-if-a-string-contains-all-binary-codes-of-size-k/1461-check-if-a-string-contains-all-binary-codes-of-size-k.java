@@ -1,17 +1,18 @@
 class Solution {
-    public double power(int x, int y){
-        if(y == 1) return x;
-        double half = power(x, y/2);
-        if(y%2==1){
-            return x*half*half;
-        }
-        return half*half;
-    }
     public boolean hasAllCodes(String s, int k) {
-        Set<String> set = new HashSet<>();
-        for(int i=0;i<s.length()+1-k;i++){
-            set.add(s.substring(i, i+k));
+        int n = s.length();
+        if(k>n) return false;
+        int count = 1<<k;
+        boolean[] visited = new boolean[count];
+        int num = k>1 ? Integer.parseInt(s.substring(n-k+1),2) << 1 : 0;
+        for(int i=n-k;i>=0;i--){
+            num = ((s.charAt(i)-'0'<<k)+num)>>1;
+            if(!visited[num]){
+                visited[num] = true;
+                --count;
+            }
+            if(count == 0 ) return true;
         }
-        return set.size() == power(2, k);
+        return count == 0 ? true : false;
     }
 }
