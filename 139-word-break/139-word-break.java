@@ -17,6 +17,7 @@ class Solution {
         return dp[n];
     }
     public boolean wordBreak(String s, List<String> wordDict) {
+        
         return wordSegment(s, wordDict,s.length());
     }
 }
