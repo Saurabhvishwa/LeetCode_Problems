@@ -39,6 +39,5 @@ public class Solution {
             headB = headB.next;
         }
         return null;
-        
     }
 }
