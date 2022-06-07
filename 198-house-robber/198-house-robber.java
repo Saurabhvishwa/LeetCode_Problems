@@ -7,9 +7,6 @@ class Solution {
             dp[i][1] += dp[i-1][0]+nums[i];
             dp[i][0] += Math.max(dp[i-1][0], dp[i-1][1]);
         }
-        for(int[] k:dp){
-            System.out.println(Arrays.toString(k));
-        }
         return Math.max(dp[nums.length-1][0], dp[nums.length-1][1]);
     }
 }
