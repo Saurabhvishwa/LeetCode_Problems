@@ -1,0 +1,99 @@
+####Course / Task Schedule####
+If you want to order the tasks in the sequence they should be put for execution, then there shouldn't be any loop in the order.
+If there is any loop in the order of the tasks/courses, then it clearly means that there's no possible order for the tasks/courses to be placed in.
+If there is no loop, then we can either BFS or DFS to find the solution or the order of the tasks/courses.
+##BFS Solution##
+	Step1: Create a graph where key will be the element having some prerequisite tasks/courses, and value will be a list of prerequisite tasks/courses.
+	Step2: Maintain an indegree array where we will keep a count on the number of prerequisite a particular task/course has.
+	Step3: Now, iterate through the courses from 0 to n-1 and put all those keys into the Queue who has 0 value in the indegree array.
+	Step4: Now, iterate through the elements from the queue one by one. For a value from the queue,
+		find the value list from the graph and decrease indegree value by 1 for all those indexes which are in this value list.
+	Step5: Then, repeat from Step3
+	Step6: If at any point of execution, we don't find any value in indegree array equals to 0 that clearly means there's a loop and we can't find the order.
+		If the loop ends, then there's no loop and we have a solution.
+##Code1##
+boolean isCourseSchedulePossible(int n, Map<Integer, List<Integer>> graph, int[] indegree){
+	int count = 0;
+	Queue<Integer> q = new LinkedList<>();
+	for(int i=0;i<n;i++){
+		if(indegree[i] == 0) q.add(i);
+	}
+	while(!q.isEmpty()){
+		int node = q.poll();
+		count++;
+		List<Integer> adj = graph.get(node);
+		for(int el: adj){
+			indegree[el]--;
+			if(indegree[el] == 0) q.add(el);
+		}
+	}
+	return count == n;
+}
+
+##DFS Solution##
+	Step1: Create a graph using the tasks/courses array
+	Step2: Create a visited Array to keep a track on the visited elements
+	Step3: Iterate i from 0 to n-1 and call dfs function with value i
+	Step4: If the current element has already been visited then return because there's a lopp and no possible solution exists
+	Step5: Take out the list of neighbors for the current element and do the recursion each the element from this list.
+	Step6: Return true when the loop of for a list of neighbors gets completed.
+	
+##Code##
+void checkSchedule(int n, int[][] tasks){
+	Map<Integer, List<Integer>> graph = new HashMap<>();
+	for(int i=0;i<tasks.length;i++){
+		int u = tasks[i][0], v = tasks[i][1];
+		List<Integer> temp = graph.getOrDefault(v, new ArrayList<>();
+		temp.add(u);
+		graph.put(v, temp);
+	}
+	Set<Integer> visited = new HashSet<>();
+	for(int i=0;i<n;i++){
+		if(!dfs(i, graph, visited) return false;
+	}
+	return true;
+}
+boolean dfs(int node, Map<Integer, List<Integer>> graph, Set<Integer> visited){
+	if(visited.contains(node)) return false;
+	visited.add(node);
+	List<Integer> adj = graph.getOrDefault(node, new ArrayList<>());
+	for(int el : adj){
+		if(!dfs(el, graph, visited) return false;
+	}
+	visited.remove(node);
+	return true;
+}
+
+##Checking And Finding The Solution##
+visited[i] == 0 => Not visited yet
+visited[i] == 1 => Visited but not exited yet
+visited[i] == 2 => Visited and exited
+boolean isPossible = true;
+Stack<Integer> order = new Stack<>();
+void checkSchedule(int n, int[][] tasks){
+	Map<Integer, List<Integer>> graph = new HashMap<>();
+	for(int i=0;i<tasks.length;i++){
+		int u = tasks[i][0], v = tasks[i][1];
+		List<Integer> temp = graph.getOrDefault(v, new ArrayList<>();
+		temp.add(u);
+		graph.put(v, temp);
+	}
+	int[] visited = new int[n];
+	for(int i=0;i<n;i++){
+		if(visited[i] == 0) dfs(i, graph, visited);
+	}
+	if(isPossible) System.out.println(order);
+	else System.out.println("No Possible Order");
+}
+void dfs(int node, Map<Integer, List<Integer>> graph, int[] visited){
+	if(isPossible == false) return false;
+	visited[node] = 1;
+	List<Integer> adj = graph.getOrDefault(node, new ArrayList<>());
+	for(int el : adj){
+		if(visited[el] == 0){
+			dfs(el, graph, visited);
+		}else if(visited[el] == 1) isPossible = false;
+	}
+	visited[node] = 2;
+	order.push(node);
+}
