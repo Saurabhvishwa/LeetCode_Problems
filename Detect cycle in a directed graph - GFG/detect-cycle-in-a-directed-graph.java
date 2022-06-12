@@ -34,12 +34,36 @@ class Solution {
     // Function to detect cycle in a directed graph.
     public boolean isCyclic(int V, ArrayList<ArrayList<Integer>> adj) {
         // code here
-        int[] visited = new int[V];
-        for(int i=0;i<V;i++){
-            if(dfs(i, adj, visited)) return true;
-        }
-        return false;
+        // int[] visited = new int[V];
+        // for(int i=0;i<V;i++){
+        //     if(dfs(i, adj, visited)) return true;
+        // }
+        // return false;
+        return bfs(V, adj);
         
+    }
+    public boolean bfs(int v, ArrayList<ArrayList<Integer>> adj){
+        int[] indegree = new int[v];
+        for(ArrayList<Integer> list : adj){
+            for(int el : list){
+                indegree[el]++;
+            }
+        }
+        // System.out.println(Arrays.toString(indegree));
+        Queue<Integer> q = new LinkedList<>();
+        for(int i=0;i<v;i++){
+            if(indegree[i] == 0) q.add(i);
+        }
+        int count = 0;
+        while(!q.isEmpty()){
+            int el = q.poll();
+            count++;
+            for(int x : adj.get(el)){
+                indegree[x]--;
+                if(indegree[x] == 0) q.add(x);
+            }
+        }
+        return count != v;
     }
     public boolean dfs(int node, ArrayList<ArrayList<Integer>> adj, int[] visited){
         visited[node] = 1;
