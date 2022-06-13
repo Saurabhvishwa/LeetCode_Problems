@@ -12,8 +12,7 @@ class Solution {
                 if( i == 0 || j == 0  || dp[i][j] == 0) continue;
                 else{
                     int min = Math.min(dp[i][j-1], Math.min(dp[i-1][j], dp[i-1][j-1]));
-                    if(min == 0) continue; 
-                    else dp[i][j] = min+1;
+                    dp[i][j] *= min+1;
                 }
                 if(dp[i][j] > max) max = dp[i][j];
             }
