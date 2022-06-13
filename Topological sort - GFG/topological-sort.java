@@ -88,22 +88,4 @@ class Solution
         return count == V ? ans.stream().mapToInt(i->i).toArray() : new int[1];
         
     }
-    public static void dfs(int node, ArrayList<ArrayList<Integer>> adj, int[] visited, boolean isPossible, Stack<Integer> order){
-        if(isPossible == false) return;
-        visited[node] = 1;
-        ArrayList<Integer> list = adj.get(node);
-        if(list != null){
-            for(int el:list){
-                if(visited[el] == 0){
-                    dfs(el, adj, visited, isPossible, order);
-                }else if(visited[el] == 1){
-                    isPossible = false;
-                    return;
-                }
-            }
-        }
-        visited[node] = 2;
-        order.push(node);
-        return;
-    }
 }
