@@ -1,7 +1,7 @@
 class Solution {
     public int minDistance(String word1, String word2) {
         int m = word1.length(), n = word2.length();
-        int[][] dp = new int[2][n+2];
+        int[][] dp = new int[2][n+1];
         dp[0][0] = 0;
         for(int i=0;i<=m;i++){
             for(int j=0;j<=n;j++){
