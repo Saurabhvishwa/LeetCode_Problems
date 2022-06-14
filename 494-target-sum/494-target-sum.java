@@ -6,8 +6,7 @@ class Solution {
             return;
         }
         for(int i=index;i<nums.length;i++){
-            if(nums[i] == 0) continue;
-            if(target-nums[i]>=0){
+            if(nums[i] != 0 && target-nums[i]>=0){
                 findWays(nums, target-nums[i], i+1);
             }
         }
