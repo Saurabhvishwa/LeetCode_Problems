@@ -17,14 +17,8 @@ class Solution {
     public TreeNode LCA(TreeNode root, TreeNode p, TreeNode q) {
         if(root == null) return null;
         TreeNode temp = null;
-        if(root.val == p.val){
-            f = true;
-            temp = root;
-        }
-        if(root.val == q.val){
-            s = true;
-            temp = root;
-        }
+        if(root.val == p.val) {f=true; temp=root;}
+        else if(root.val == q.val) {s=true; temp=root;}
         TreeNode left = LCA(root.left, p, q);
         TreeNode right = LCA(root.right, p ,q );
         if(temp != null) return temp;
