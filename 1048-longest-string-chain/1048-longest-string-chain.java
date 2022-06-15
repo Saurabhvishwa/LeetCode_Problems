@@ -9,8 +9,9 @@ class Solution {
         for(String word : words){
             map.put(word, 1);
             for(int i=0;i<word.length();i++){
-                StringBuilder sb = new StringBuilder(word);
-                String sub = sb.deleteCharAt(i).toString();
+                // StringBuilder sb = new StringBuilder(word);
+                // String sub = sb.deleteCharAt(i).toString();
+                String sub = word.substring(0,i)+word.substring(i+1);
                 if(map.containsKey(sub) && map.get(sub)+1>map.get(word)){
                     map.put(word, map.get(sub)+1);
                 }
