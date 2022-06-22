@@ -13,7 +13,6 @@ class Solution {
             if(!st.isEmpty() && temperatures[i] > temperatures[st.peek()]) st.push(i);
             else st.push(i);
         }
-        System.out.println(Arrays.toString(ans));
         return ans;
     }
 }
