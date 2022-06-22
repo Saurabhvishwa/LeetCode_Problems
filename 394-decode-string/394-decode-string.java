@@ -1,7 +1,6 @@
 class Solution {
     public String decodeString(String s) {
-        String temp = "", top = "", k = "", peek = "";
-        StringBuilder merge = new StringBuilder("");
+        String temp = "", top = "", k = "", peek = "", merge = "";
         int value = 0;
         Stack<String> st = new Stack<>();
         for(int i=0;i<s.length();i++){
@@ -20,12 +19,11 @@ class Solution {
                     peek = st.isEmpty() ? null : st.peek();
                 }
                 value = Integer.parseInt(k);
-                merge.setLength(0);
-                while(value>0){
-                    merge.append(temp);
-                    value--;
+                merge = "";
+                while((value--)>0){
+                    merge += temp;
                 }
-                st.push(merge.toString());
+                st.push(merge);
             }
         }
         StringBuilder ans = new StringBuilder("");
