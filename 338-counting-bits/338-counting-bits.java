@@ -4,7 +4,7 @@ class Solution {
         if(n == 0) return ans;
         ans[1] = 1;
         for(int i=2;i<=n;i++){
-            if(i%2==0) ans[i] = ans[i/2];
+            if((i&1) == 0) ans[i] = ans[i/2];
             else ans[i] = ans[i/2] + 1;
         }
         return ans;
