@@ -6,8 +6,7 @@ class Solution {
         int x = 0;
         for(int i=2;i<=n;i++){
             x = i/2;
-            if((i&1) == 0) ans[i] = ans[x];
-            else ans[i] = ans[x] + 1;
+            ans[i] = (i&1) == 0 ? ans[x] : ans[x] + 1;
         }
         return ans;
     }
