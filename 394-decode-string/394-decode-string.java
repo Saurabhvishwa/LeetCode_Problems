@@ -27,10 +27,10 @@ class Solution {
                 st.push(merge);
             }
         }
-        String ans = "";
+        StringBuilder ans = new StringBuilder("");
         while(!st.isEmpty()){
-            ans = st.pop() + ans;
+            ans.insert(0, st.pop());
         }
-        return ans;
+        return ans.toString();
     }
 }
