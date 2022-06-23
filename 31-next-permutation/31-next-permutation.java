@@ -1,15 +1,4 @@
 class Solution {
-    public int binSearch(int[] nums, int start, int end, int key){
-        while(start<=end){
-            int mid = (start+end)/2;
-            if(nums[mid]>key){
-                start = mid+1;
-            }else{
-                end = mid-1;
-            }
-        }
-        return end;
-    }
     public void getPerm(int[] nums){
         int index;
         int i=0,j=0;
@@ -36,24 +25,5 @@ class Solution {
     }
     public void nextPermutation(int[] nums) {
         getPerm(nums);
-        // int i = nums.length-2;
-        // while(i>=0 && nums[i+1] <= nums[i]){
-        //     i--;
-        // }
-        // if(i >=0){
-        //     int index = binSearch(nums,i+1, nums.length-1,nums[i]);
-        //     int temp = nums[index];
-        //     nums[index] = nums[i];
-        //     nums[i] = temp;
-        // }
-        // int j = nums.length-1;
-        // i++;
-        // while(i<j){
-        //     int temp = nums[i];
-        //     nums[i] = nums[j];
-        //     nums[j] = temp;
-        //     i++;
-        //     j--;
-        // }
     }
 }
