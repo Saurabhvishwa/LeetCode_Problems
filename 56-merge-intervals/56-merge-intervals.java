@@ -32,7 +32,6 @@ class Solution {
             result[index][0] = l.get(0);
             result[index++][1] = l.get(1);
         }
-        System.out.println(ans);
         return result;
     }
 }
