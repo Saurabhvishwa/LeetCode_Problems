@@ -1,15 +1,23 @@
 class Solution {
     public int numSquares(int n) {
-        int[] dp = new int[n+1];
-        dp[1] = 1;
-        int min;
-        for(int i=2;i<=n;i++){
-            min = Integer.MAX_VALUE;
-            for(int j=1;j*j<=i;j++){
-                min = Math.min(min, dp[i-j*j]);
+        int count = 0;
+        Set<Integer> v = new HashSet<>();
+        Queue<Integer> q = new LinkedList<>();
+        q.add(0);
+        while(!q.isEmpty()){
+            Queue<Integer> temp = new LinkedList<>();
+            while(!q.isEmpty()){
+                int cur = q.poll();
+                if(cur == n) return count;
+                for(int i=1;cur+i*i<=n;i++){
+                    int next = cur + i*i;
+                    if(!v.contains(next)) temp.add(next);
+                    v.add(next);
+                }
             }
-            dp[i] = min + 1;
+            q = temp;
+            count++;
         }
-        return dp[n];
+        return -1;
     }
 }
