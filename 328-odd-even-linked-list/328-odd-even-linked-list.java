@@ -17,12 +17,11 @@ class Solution {
             if(isOdd){
                 o.next = head;
                 o = o.next;
-                isOdd = !isOdd;
             }else{
                 e.next = head;
                 e = e.next;
-                isOdd = !isOdd;
             }
+            isOdd = !isOdd;
             head = head.next;
         }
         e.next = null;
