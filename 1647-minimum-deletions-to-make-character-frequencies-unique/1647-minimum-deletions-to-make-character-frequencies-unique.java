@@ -14,7 +14,6 @@ class Solution {
                 count++;
             }
         }
-        System.out.println(Arrays.toString(arr));
         return count;
     }
 }
