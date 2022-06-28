@@ -6,7 +6,6 @@ class Solution {
             arr[value]++;
         }
         Arrays.sort(arr);
-        System.out.println(Arrays.toString(arr));
         int count = 0, diff = 0;
         for(int i=arr.length-2;i>=0;i--){
             if(arr[i] == 0) break;
@@ -27,7 +26,6 @@ class Solution {
                 }
             }
         }
-                System.out.println(Arrays.toString(arr));
         return count;
     }
 }
