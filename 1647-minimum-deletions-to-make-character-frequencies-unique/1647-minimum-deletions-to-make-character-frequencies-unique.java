@@ -6,20 +6,15 @@ class Solution {
             arr[value]++;
         }
         Arrays.sort(arr);
-        System.out.println(Arrays.toString(arr));
         int count = 0;
-        Map<Integer, Integer> map = new HashMap<>();
-        for(int i=arr.length-1;i>=0;i--){
+        for(int i=arr.length-2;i>=0;i--){
             if(arr[i] == 0) break;
-            if(map.containsKey(arr[i])){
-                while(map.containsKey(arr[i])){
-                    arr[i]--;
-                    count++;
-                }
-                if(arr[i] != 0) map.put(arr[i],1);
-            }else map.put(arr[i],1);
+            while(arr[i] !=0 && arr[i]>=arr[i+1]){
+                arr[i]--;
+                count++;
+            }
         }
-        System.out.println(map);
+        System.out.println(Arrays.toString(arr));
         return count;
     }
 }
