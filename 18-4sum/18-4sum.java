@@ -4,12 +4,14 @@ class Solution {
         int n=nums.length;
         Arrays.sort(nums);
         for(int i=0;i<n;i++){
+            if(i>0 && nums[i] == nums[i-1]) continue;
             for(int j=i+1;j<n;j++){
+                if(j>i+1 && nums[j] == nums[j-1]) continue;
                 int start = j+1;
                 int end = n-1;
-                int rem = target - nums[i] - nums[j];
+                long rem = (long)target - (nums[i] + nums[j]);
                 while(start < end){
-                    int sum = nums[start]+nums[end];
+                    long sum = nums[start]+nums[end];
                     if(sum<rem){
                         start++;
                     }else if(sum>rem){
@@ -21,17 +23,12 @@ class Solution {
                         temp.add(nums[start]);
                         temp.add(nums[end]);
                         list.add(temp);
-                        start++;
-                        end--;
-                        while(start<end && nums[start] == nums[start-1]) ++start;
-                        while(start<end && nums[end] == nums[end+1]) --end;
+                        while(start<end && nums[start] == nums[start+1]) start++;
+                        while(start<end && nums[end] == nums[end-1]) end--;
+                        start++; end--;
                     }
-                   
-                    
                 }
-                while(j+1<n && nums[j] == nums[j+1])j++;
             }
-            while(i+1<n && nums[i] == nums[i+1]) i++;
         }
         return list;
     }
